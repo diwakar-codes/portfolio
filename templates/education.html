@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}Diwakar Singh - Education{% endblock %}
+
+{% block content %}
+<style>
+    .page-header {
+        margin-bottom: 80px;
+    }
+
+    .education-item {
+        margin-bottom: 60px;
+    }
+
+    .education-item:not(:last-child) {
+        padding-bottom: 60px;
+        border-bottom: 1px solid #d2d2d7;
+    }
+
+    .education-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .education-degree {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        color: #1d1d1f;
+    }
+
+    .education-year {
+        color: #6e6e73;
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    .education-institution {
+        color: #6e6e73;
+        font-size: 17px;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 100px 0;
+    }
+
+    .empty-state p {
+        color: #86868b;
+        font-size: 19px;
+    }
+
+    @media (max-width: 768px) {
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .education-item {
+            margin-bottom: 40px;
+        }
+
+        .education-item:not(:last-child) {
+            padding-bottom: 40px;
+        }
+
+        .education-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .education-degree {
+            font-size: 24px;
+        }
+    }
+</style>
+
+<div class="page-header">
+    <h2>Education</h2>
+</div>
+
+{% if data %}
+    {% for edu in data %}
+    <div class="education-item">
+        <div class="education-header">
+            <h3 class="education-degree">{{ edu.degree }}</h3>
+            <span class="education-year">{{ edu.year }}</span>
+        </div>
+        <p class="education-institution">{{ edu.institution }}</p>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="empty-state">
+        <p>No education entries yet.</p>
+    </div>
+{% endif %}
+{% endblock %}

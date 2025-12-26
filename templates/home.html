@@ -1,0 +1,304 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Diwakar Singh{% endblock %}
+
+{% block content %}
+<style>
+    .hero {
+        text-align: center;
+        padding: 120px 0;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 64px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+        margin-bottom: 32px;
+        color: #1d1d1f;
+    }
+
+    .typing-container {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+    }
+
+    .typing-text {
+        font-size: 28px;
+        color: #1d1d1f;
+        font-weight: 500;
+        line-height: 1.4;
+        letter-spacing: -0.01em;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 3px;
+        height: 32px;
+        background-color: #1d1d1f;
+        margin-left: 4px;
+        animation: blink 0.8s infinite;
+        vertical-align: middle;
+    }
+
+    @keyframes blink {
+        0%, 50% {
+            opacity: 1;
+        }
+        51%, 100% {
+            opacity: 0;
+        }
+    }
+
+    .subtitle {
+        font-size: 19px;
+        color: #6e6e73;
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: -0.01em;
+        max-width: 700px;
+        margin: 0 auto 48px;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 14px 28px;
+        font-size: 15px;
+        font-weight: 400;
+        text-decoration: none;
+        border-radius: 24px;
+        transition: all 0.2s;
+        display: inline-block;
+    }
+
+    .btn-primary {
+        background: #1d1d1f;
+        color: #ffffff;
+    }
+
+    .btn-primary:hover {
+        opacity: 0.85;
+        transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+        background: #ffffff;
+        color: #1d1d1f;
+        border: 1px solid #d2d2d7;
+    }
+
+    .btn-secondary:hover {
+        border-color: #1d1d1f;
+        transform: translateY(-2px);
+    }
+
+    /* LinkedIn Section Styles */
+    .linkedin-section {
+        margin-top: 120px;
+        text-align: center;
+    }
+
+    .linkedin-heading {
+        font-size: 40px;
+        font-weight: 600;
+        color: #1d1d1f;
+        margin-bottom: 60px;
+        letter-spacing: -0.01em;
+    }
+
+    .linkedin-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .linkedin-card {
+        border: 1px solid #d2d2d7;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #ffffff;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .linkedin-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .linkedin-card iframe {
+        display: block;
+        border-radius: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            padding: 80px 0;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .typing-text {
+            font-size: 22px;
+        }
+
+        .cursor {
+            height: 26px;
+        }
+
+        .subtitle {
+            font-size: 17px;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn {
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .linkedin-section {
+            margin-top: 80px;
+        }
+
+        .linkedin-heading {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .linkedin-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+    }
+</style>
+
+<div class="hero">
+    <h1>Welcome to My Portfolio</h1>
+    
+    <div class="typing-container">
+        <span class="typing-text" id="typingText"></span>
+        <span class="cursor"></span>
+    </div>
+
+    <p class="subtitle">
+        Transforming complex data into actionable insights through innovative solutions. 
+        Passionate about building intelligent systems and scalable web applications.
+    </p>
+
+    <div class="cta-buttons">
+        <a href="{% url 'projects' %}" class="btn btn-primary">View My Work</a>
+        <a href="{% url 'contact' %}" class="btn btn-secondary">Get in Touch</a>
+    </div>
+</div>
+
+
+<!-- LINKEDIN POSTS GRID -->
+<section class="linkedin-section">
+    <h3 class="linkedin-heading">LinkedIn Updates</h3>
+    {% if linkedin_posts %}
+    <div class="linkedin-grid">
+        {% for post in linkedin_posts %}
+        <div class="linkedin-card">
+            <iframe
+                src="https://www.linkedin.com/embed/feed/update/urn:li:activity:{{ post.activity_id }}"
+                width="100%"
+                height="480"
+                frameborder="0"
+                allowfullscreen
+                title="LinkedIn post {{ forloop.counter }}">
+            </iframe>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p style="color: #6e6e73; font-size: 17px;">No LinkedIn posts available yet.</p>
+    {% endif %}
+</section>
+
+{% if resume %}
+<div style="margin-top: 100px; text-align: center;">
+    <h2>Resume</h2>
+    <p class="subtitle">
+        Download my latest resume to know more about my skills and experience.
+    </p>
+
+    <a href="{{ resume.file.url }}"
+       target="_blank"
+       class="btn btn-primary">
+        Download Resume
+    </a>
+</div>
+{% endif %}
+
+<script>
+    const roles = [
+        "I am a Data Science enthusiast",
+        "I am a Backend Web Development enthusiast",
+        "I am a Machine Learning enthusiast"
+    ];
+    
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+    
+    const typingTextElement = document.getElementById('typingText');
+    
+    function type() {
+        const currentRole = roles[roleIndex];
+        
+        if (!isDeleting) {
+            // Typing
+            typingTextElement.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            
+            if (charIndex === currentRole.length) {
+                // Finished typing, wait before deleting
+                isDeleting = true;
+                typingSpeed = 2000; // Pause at the end
+            } else {
+                typingSpeed = 100;
+            }
+        } else {
+            // Deleting
+            typingTextElement.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            
+            if (charIndex === 0) {
+                // Finished deleting, move to next role
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typingSpeed = 500; // Pause before typing next role
+            } else {
+                typingSpeed = 50;
+            }
+        }
+        
+        setTimeout(type, typingSpeed);
+    }
+    
+    // Start typing animation when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(type, 1000);
+    });
+</script>
+{% endblock %}

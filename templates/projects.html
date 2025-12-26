@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Diwakar Singh - Projects{% endblock %}
+
+{% block content %}
+<style>
+    .page-header {
+        margin-bottom: 80px;
+    }
+
+    .project-item {
+        margin-bottom: 60px;
+    }
+
+    .project-item:not(:last-child) {
+        padding-bottom: 60px;
+        border-bottom: 1px solid #d2d2d7;
+    }
+
+    .project-title {
+        margin-bottom: 12px;
+    }
+
+    .project-tech {
+        color: #6e6e73;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .project-description {
+        color: #1d1d1f;
+        font-size: 17px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .project-link {
+        display: inline-block;
+        color: #0066cc;
+        text-decoration: none;
+        font-size: 15px;
+        transition: opacity 0.2s;
+    }
+
+    .project-link:hover {
+        opacity: 0.7;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 100px 0;
+    }
+
+    .empty-state p {
+        color: #86868b;
+        font-size: 19px;
+    }
+
+    @media (max-width: 768px) {
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .project-item {
+            margin-bottom: 40px;
+        }
+
+        .project-item:not(:last-child) {
+            padding-bottom: 40px;
+        }
+    }
+</style>
+
+<div class="page-header">
+    <h2>Projects</h2>
+</div>
+
+{% if data %}
+    {% for project in data %}
+    <div class="project-item">
+        <h3 class="project-title">{{ project.title }}</h3>
+        <p class="project-tech">{{ project.tech_stack }}</p>
+        <p class="project-description">{{ project.description }}</p>
+        {% if project.github_link %}
+        <a href="{{ project.github_link }}" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+        {% endif %}
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="empty-state">
+        <p>No projects yet.</p>
+    </div>
+{% endif %}
+{% endblock %}

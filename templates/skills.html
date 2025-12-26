@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Diwakar Singh - Skills{% endblock %}
+
+{% block content %}
+<style>
+    .page-header {
+        margin-bottom: 80px;
+    }
+
+    .skills-list {
+        max-width: 700px;
+    }
+
+    .skill-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+        border-bottom: 1px solid #d2d2d7;
+    }
+
+    .skill-item:first-child {
+        border-top: 1px solid #d2d2d7;
+    }
+
+    .skill-name {
+        font-size: 17px;
+        color: #1d1d1f;
+        font-weight: 400;
+    }
+
+    .skill-level {
+        color: #6e6e73;
+        font-size: 15px;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 100px 0;
+    }
+
+    .empty-state p {
+        color: #86868b;
+        font-size: 19px;
+    }
+
+    @media (max-width: 768px) {
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .skill-item {
+            padding: 20px 0;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+    }
+</style>
+
+<div class="page-header">
+    <h2>Skills</h2>
+</div>
+
+{% if data %}
+    <div class="skills-list">
+        {% for skill in data %}
+        <div class="skill-item">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-level">{{ skill.level }}</span>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty-state">
+        <p>No skills listed yet.</p>
+    </div>
+{% endif %}
+{% endblock %}
