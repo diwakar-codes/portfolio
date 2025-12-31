@@ -9,9 +9,9 @@ def create_superuser(sender, **kwargs):
     User.objects.all().delete()  # FORCE RESET (TEMPORARY)
 
     User.objects.create_superuser(
-        username="admin",
-        email="admin@example.com",
-        password="Admin@123",
+        username="diwakar-portfolio",
+        email="rajputdiwakar2002@gmail.com",
+        password="Sungoddiwakar@2002",
         is_staff=True,
         is_superuser=True
     )
