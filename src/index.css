@@ -1,0 +1,780 @@
+/* ==========================================================================
+   RESET & SYSTEM BASICS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #ffffff;
+    color: #1d1d1f;
+    line-height: 1.6;
+    font-size: 17px;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   LAYOUT & CONTAINER
+   ========================================================================== */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    min-height: calc(100vh - 280px);
+}
+
+.divider {
+    height: 1px;
+    background: #d2d2d7;
+    margin: 60px 0;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1 {
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.07;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+p {
+    color: #6e6e73;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.muted {
+    color: #6e6e73;
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
+nav {
+    border-bottom: 1px solid #d2d2d7;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 100;
+}
+
+nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background: #1d1d1f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.brand-name {
+    color: #1d1d1f;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+nav a.nav-link {
+    color: #1d1d1f;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    transition: opacity 0.2s;
+}
+
+nav a.nav-link:hover,
+nav a.nav-link.active {
+    opacity: 0.6;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #1d1d1f;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+    border-top: 1px solid #d2d2d7;
+    padding: 60px 0;
+    background: #fafafa;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.footer-section h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.footer-section p,
+.footer-section a {
+    color: #6e6e73;
+    font-size: 14px;
+    line-height: 1.8;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-section a:hover {
+    color: #1d1d1f;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.social-links a {
+    display: inline-block;
+    color: #1d1d1f;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #d2d2d7;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+
+.social-links a:hover {
+    background: #1d1d1f;
+    color: #ffffff;
+    border-color: #1d1d1f;
+}
+
+.footer-bottom {
+    border-top: 1px solid #d2d2d7;
+    padding-top: 24px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #86868b;
+    font-size: 13px;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn {
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    border-radius: 24px;
+    transition: all 0.2s;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: #1d1d1f;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #1d1d1f;
+    border: 1px solid #d2d2d7;
+}
+
+.btn-secondary:hover {
+    border-color: #1d1d1f;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   HOME PAGE (HERO & GENERAL)
+   ========================================================================== */
+.hero {
+    text-align: center;
+    padding: 120px 0;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.hero h1 {
+    font-size: 64px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 32px;
+    color: #1d1d1f;
+}
+
+.typing-container {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.typing-text {
+    font-size: 28px;
+    color: #1d1d1f;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 32px;
+    background-color: #1d1d1f;
+    margin-left: 4px;
+    animation: blink 0.8s infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.subtitle {
+    font-size: 19px;
+    color: #6e6e73;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    max-width: 700px;
+    margin: 0 auto 48px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* LinkedIn Section Styles */
+.linkedin-section {
+    margin-top: 120px;
+    text-align: center;
+}
+
+.linkedin-heading {
+    font-size: 40px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 60px;
+    letter-spacing: -0.01em;
+}
+
+.linkedin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.linkedin-card {
+    border: 1px solid #d2d2d7;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ffffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.linkedin-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.linkedin-card iframe {
+    display: block;
+    border-radius: 16px;
+}
+
+/* ==========================================================================
+   EXPERIENCE PAGE
+   ========================================================================== */
+.page-header {
+    margin-bottom: 80px;
+}
+
+.experience-item {
+    margin-bottom: 60px;
+}
+
+.experience-item:not(:last-child) {
+    padding-bottom: 60px;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+.experience-header {
+    margin-bottom: 16px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.experience-meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.experience-meta span {
+    color: #6e6e73;
+    font-size: 15px;
+}
+
+.experience-meta span:not(:last-child)::after {
+    content: "•";
+    margin-left: 12px;
+    color: #d2d2d7;
+}
+
+.experience-description {
+    color: #1d1d1f;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   PROJECTS PAGE
+   ========================================================================== */
+.project-item {
+    margin-bottom: 60px;
+}
+
+.project-item:not(:last-child) {
+    padding-bottom: 60px;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+.project-title {
+    margin-bottom: 12px;
+}
+
+.project-tech {
+    color: #6e6e73;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.project-description {
+    color: #1d1d1f;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-link {
+    display: inline-block;
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 15px;
+    transition: opacity 0.2s;
+}
+
+.project-link:hover {
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   SKILLS PAGE
+   ========================================================================== */
+.skills-list {
+    max-width: 700px;
+    margin-bottom: 60px;
+}
+
+.skills-category-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    padding-bottom: 8px;
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+.skill-name {
+    font-size: 17px;
+    color: #1d1d1f;
+    font-weight: 400;
+}
+
+.skill-level {
+    color: #6e6e73;
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   EDUCATION PAGE
+   ========================================================================== */
+.education-item {
+    margin-bottom: 60px;
+}
+
+.education-item:not(:last-child) {
+    padding-bottom: 60px;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.education-degree {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: #1d1d1f;
+}
+
+.education-year {
+    color: #6e6e73;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.education-institution {
+    color: #6e6e73;
+    font-size: 17px;
+}
+
+/* ==========================================================================
+   CONTACT PAGE
+   ========================================================================== */
+.contact-form {
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 32px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #1d1d1f;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 17px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1d1d1f;
+    background: #ffffff;
+    border: 1px solid #d2d2d7;
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #1d1d1f;
+}
+
+.form-textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.form-button {
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #ffffff;
+    background: #1d1d1f;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    appearance: none;
+}
+
+.form-button:hover {
+    opacity: 0.85;
+}
+
+.form-button:active {
+    opacity: 0.65;
+}
+
+.message-box {
+    margin-bottom: 40px;
+    padding: 16px 20px;
+    border: 1px solid #d2d2d7;
+    background: #ffffff;
+    color: #1d1d1f;
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   EMPTY STATE (FALLBACK)
+   ========================================================================== */
+.empty-state {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.empty-state p {
+    color: #86868b;
+    font-size: 19px;
+}
+
+/* ==========================================================================
+   THREE JS CANVAS CONTAINER
+   ========================================================================== */
+.canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES / RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+    nav .container {
+        flex-wrap: wrap;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 16px;
+        padding-top: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .content-wrapper {
+        padding: 60px 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-content {
+        padding: 0 20px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .hero {
+        padding: 80px 0;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 24px;
+    }
+
+    .typing-text {
+        font-size: 22px;
+    }
+
+    .cursor {
+        height: 26px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .linkedin-section {
+        margin-top: 80px;
+    }
+
+    .linkedin-heading {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .linkedin-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .experience-item {
+        margin-bottom: 40px;
+    }
+
+    .experience-item:not(:last-child) {
+        padding-bottom: 40px;
+    }
+
+    .project-item {
+        margin-bottom: 40px;
+    }
+
+    .project-item:not(:last-child) {
+        padding-bottom: 40px;
+    }
+
+    .skill-item {
+        padding: 20px 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .education-item {
+        margin-bottom: 40px;
+    }
+
+    .education-item:not(:last-child) {
+        padding-bottom: 40px;
+    }
+
+    .education-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .education-degree {
+        font-size: 24px;
+    }
+
+    .form-group {
+        margin-bottom: 24px;
+    }
+}
